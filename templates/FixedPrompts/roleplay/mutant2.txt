@@ -1,6 +1,5 @@
-as a sentence?
+Here is one possible rephrased version of the code:
 
-The `train_model` function trains the given model using the provided data for a specified number of epochs and a defined batch size.
 ```python
 {}
 ```

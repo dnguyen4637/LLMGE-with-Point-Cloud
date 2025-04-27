@@ -308,7 +308,7 @@ def submit_run(gene_id):
             tmp = f"-data {DATA_PATH} -end_lr 0.001 -seed 21 -val_r 0.2 -epoch 2"
 
         # python_runline = f'python {train_file} -bs 216 -epoch 2 -network "models.network_{gene_id}" {tmp}'
-        python_runline = ('PYTHONPATH=/home/hice1/dnguyen448/scratch/LLM-Guided-Evolution-Generic/sota/Pointnet_Pointnet2_pytorch/models/llmge_models:$PYTHONPATH 'f'python {train_file} --batch_size 216 --model "pointnet2_cls_ssg_{gene_id}" {tmp}')
+        python_runline = ('PYTHONPATH=/home/hice1/htirumalai3/scratch/llm-guided-evolution/sota/Pointnet_Pointnet2_pytorch/models/llmge_models:$PYTHONPATH 'f'python {train_file} --batch_size 216 --model "pointnet2_cls_ssg_{gene_id}" {tmp}')
 
         bash_script_content = PYTHON_BASH_SCRIPT_TEMPLATE.format(python_runline)
         return bash_script_content
@@ -415,7 +415,7 @@ def check4results(gene_id):
         pass
         
 
-def check_and_update_fitness(population, timeout=3600*30, loop_delay=60*30):
+def check_and_update_fitness(population, timeout=3600*30, loop_delay=60*5):
     # original loop_delay = 60*30
     """ This function submits jobs and then if submitted it checks for four possibilities.
     
