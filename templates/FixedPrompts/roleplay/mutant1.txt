@@ -1,7 +1,6 @@
-python
-def train_model(model, X_train, y_train):
-    model.fit(X_train, y_train)
-    return model
+as a single line of Python code?
+
+Yes, here is the single line version of the `calculate_average` function:
 
 ```python
 {}

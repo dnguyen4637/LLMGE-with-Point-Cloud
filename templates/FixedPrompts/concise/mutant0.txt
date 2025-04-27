@@ -1,7 +1,7 @@
-python
----
-lambda x: foo(x)
----
+as a one-liner?
+
+Yes, the function `get_data` can be rewritten as a one-liner using the pipe method and the lambda function in pandas as follows:
+
 
 ```python
 {}

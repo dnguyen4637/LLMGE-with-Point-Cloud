@@ -1,0 +1,27 @@
+python
+def neural_network(x):
+    W1 = tf.Variable(random_normal([n_hidden_1, n_input]))
+    b1 = tf.Variable(random_normal([n_hidden_1]))
+    layer_1 = tf.nn.relu(tf.matmul(W1, x) + b1)
+
+    W2 = tf.Variable(random_normal([n_hidden_2, n_hidden_1]))
+    b2 = tf.Variable(random_normal([n_hidden_2]))
+    layer_2 = tf.nn.relu(tf.matmul(W2, layer_1) + b2)
+
+    W3 = tf.Variable(random_normal([n_output, n_hidden_2]))
+    b3 = tf.Variable(random_normal([n_output]))
+    output = tf.matmul(W3, layer_2) + b3
+
+    return output
+
+```python
+{}
+```
+1. Retain original class names.
+2. Format the code in Markdown.
+3. Exclude setup/demonstration code.
+4. Retain original tensor input/output sizes.
+5. Provide full code.
+6. Must function with default settings.
+
+A: Let us think step by step

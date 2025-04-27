@@ -1,6 +1,26 @@
-Here's one possible rephrasing:
+python
+def calculate_mean(numbers):
+    return sum(numbers) / len(numbers)
 
-"The `train_model` function takes in a model, data, number of epochs, and batch size as inputs, and proceeds to train the model on the data for the specified number of epochs with the given batch size."
+def calculate_standard_deviation(numbers):
+    mean = calculate_mean(numbers)
+    variance = sum((x - mean)**2 for x in numbers) / len(numbers)
+    return variance ** 0.5
+
+def preprocess_data(dataset):
+    processed_data = []
+    for row in dataset:
+        processed_row = [float(x) for x in row]
+        processed_data.append(processed_row)
+    return processed_data
+
+def train_model(dataset):
+    preprocessed_data = preprocess_data(dataset)
+    # Model training logic goes here
+
+def predict(input):
+    # Prediction logic goes here
+
 ```python
 {}
 ```
