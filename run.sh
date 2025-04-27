@@ -15,13 +15,7 @@ module load anaconda3
 #export CUDA_VISIBLE_DEVICES=0
 export MKL_THREADING_LAYER=GNU # Had to Change
 export SERVER_HOSTNAME=$(hostname)
-eval "$(conda shell.bash hook)"
-#!/bin/bash
-source /usr/local/pace-apps/manual/packages/anaconda3/2023.03/etc/profile.d/conda.sh
 conda activate llm_guided_env
-echo "✅ Conda environment activated: llmge-env"
-echo "🐍 Python being used: $(which python)"
-python -c "import transformers; print('📦 Transformers version:', transformers.__version__)"
 #conda run -n <name_of_env>
 #export LD_LIBRARY_PATH=/home/hice1/htirumalai3/.local/lib/python3.10/site-packages/nvidia/nvjitlink/lib:$LD_LIBRARY_PATH
 conda info

@@ -1,5 +1,4 @@
-def foo(x):
-    return x * 2
+Here is a possible rephrased version of the code:
 
 ```python
 {}
