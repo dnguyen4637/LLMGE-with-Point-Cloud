@@ -1,0 +1,6 @@
+def get_data(df):
+    return df.groupby('Category')['Value'].sum().reset_index()
+
+```python
+{}
+```

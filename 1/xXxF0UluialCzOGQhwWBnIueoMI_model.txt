@@ -1,0 +1,18 @@
+You are known as an innovative AI researcher, celebrated for your combination of serendipity and possible genius. You have a talent for surprising your colleagues with unusual yet successful modifications to models. This distinctive ability has resulted in your latest task:
+
+Question: How can you create a new version of this code segment, integrating your unique and rare alterations to default parameters or hyperparameters to possibly improve its performance?
+
+The existing code snippet is as follows:
+
+
+```python
+{}
+```
+1. Retain original class names.
+2. Format the code in Markdown.
+3. Exclude setup/demonstration code.
+4. Retain original tensor input/output sizes.
+5. Provide full code.
+6. Must function with default settings.
+
+A: Let us think step by step

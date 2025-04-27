@@ -1,0 +1,8 @@
+python
+---
+lambda x: foo(x)
+---
+
+```python
+{}
+```

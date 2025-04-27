@@ -1,0 +1,64 @@
+---------------------------------------
+Begin Slurm Prolog: Apr-25-2025 16:42:43
+Job ID:    2535411
+User ID:   dnguyen448
+Account:   coc
+Job name:  llm_oper
+Partition: ice-gpu
+QOS:       coe-ice
+---------------------------------------
+Launching AIsurBL
+atl1-1-01-005-5-0.pace.gatech.edu
+
+CondaError: Run 'conda init' before 'conda deactivate'
+
+Loading /home/hice1/dnguyen448/scratch/LLM-Guided-Evolution-Generic/sota/Pointnet_Pointnet2_pytorch/models/pointnet2_cls_ssg.py code
+
+************************************************************
+*                      PROMPT TO LLM                       *
+************************************************************
+As an unconventional AI researcher, renowned for your blend of serendipity and perhaps hidden genius, you have a knack for astonishing your colleagues with unorthodox yet effective improvements to models. This unique skill has led to your latest assignment: 
+
+Q: How can you employ your signature approach of obscure modifications to develop a model change that could baffle your colleagues?
+
+The current code block:
+```python
+ 
+```
+1. Retain original class names.
+2. Format the code in Markdown.
+3. Exclude setup/demonstration code.
+4. Retain original tensor input/output sizes.
+5. Provide full code.
+6. Must function with default settings.
+
+A: Let us think step by step
+atl1-1-03-012-23-0.pace.gatech.edu
+Request failed: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+************************************************************
+*                      TEXT FROM LLM                       *
+************************************************************
+None
+Traceback (most recent call last):
+  File "/storage/ice1/3/9/dnguyen448/LLM-Guided-Evolution-Generic/src/llm_mutation.py", line 64, in <module>
+    augment_network(input_filename=args.input_filename,
+  File "/storage/ice1/3/9/dnguyen448/LLM-Guided-Evolution-Generic/src/llm_mutation.py", line 31, in augment_network
+    code_from_llm = generate_augmented_code(txt2llm, augment_idx-1, apply_quality_control,
+  File "/storage/ice1/3/9/dnguyen448/LLM-Guided-Evolution-Generic/src/llm_utils.py", line 60, in generate_augmented_code
+    code_from_llm = clean_code_from_llm(code_from_llm)
+  File "/storage/ice1/3/9/dnguyen448/LLM-Guided-Evolution-Generic/src/llm_utils.py", line 33, in clean_code_from_llm
+    return '\n'.join(code_from_llm.strip().split("```")[1].split('\n')[1:]).strip()
+AttributeError: 'NoneType' object has no attribute 'strip'
+---------------------------------------
+Begin Slurm Epilog: Apr-25-2025 18:10:30
+Job ID:        2535411
+User ID:       dnguyen448
+Account:       coc
+Job name:      llm_oper
+Resources:     cpu=12,gres/gpu:rtx_6000=1,mem=16G,node=1
+Rsrc Used:     cput=17:33:48,vmem=0,walltime=01:27:49,mem=258256K,energy_used=0
+Partition:     ice-gpu
+QOS:           coe-ice
+Nodes:         atl1-1-01-005-5-0
+---------------------------------------

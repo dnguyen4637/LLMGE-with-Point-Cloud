@@ -1,0 +1,220 @@
+---------------------------------------
+Begin Slurm Prolog: Apr-25-2025 15:09:41
+Job ID:    2534256
+User ID:   dnguyen448
+Account:   coc
+Job name:  llm_oper
+Partition: ice-gpu
+QOS:       coe-ice
+---------------------------------------
+Launching AIsurBL
+atl1-1-03-004-23-0.pace.gatech.edu
+
+CondaError: Run 'conda init' before 'conda deactivate'
+
+Loading /home/hice1/dnguyen448/scratch/LLM-Guided-Evolution-Generic/sota/Pointnet_Pointnet2_pytorch/models/llmge_models/pointnet2_cls_ssg_xXxSy2KMitfNWnLXEh2bjEXsBPr.py code
+
+************************************************************
+*                      PROMPT TO LLM                       *
+************************************************************
+def calculate_average(numbers):
+    return sum(numbers) / len(numbers)
+
+```python
+import torch
+import torch.nn as nn
+from torch.nn import functional as F
+
+class NeuralTuringMachine(nn.Module):
+    def __init__(self, input_size, hidden_size, num_heads, controller_hidden_size):
+        super(NeuralTuringMachine, self).__init__()
+        
+        self.input_size = input_size
+        self.hidden_size = hidden_size
+        self.num_heads = num_heads
+        self.controller_hidden_size = controller_hidden_size
+        
+        self.controller = nn.LSTMCell(input_size, controller_hidden_size)
+        self.memory = nn.Parameter(torch.randn(1, hidden_size))
+        self.read_weights = nn.Linear(controller_hidden_size, num_heads * hidden_size)
+        self.write_weights = nn.Linear(controller_hidden_size, num_heads * hidden_size)
+        self.shift_weights = nn.Linear(controller_hidden_size, num_heads * 2)
+        
+    def forward(self, x):
+        hc, c = self.controller(x, None)
+        
+        read_weights = self.read_weights(hc)
+        read_weights = read_weights.view(-1, self.num_heads, self.hidden_size)
+        read_weights = F.softmax(read_weights, dim=1)
+        
+        write_weights = self.write_weights(hc)
+        write_weights = write_weights.view(-1, self.num_heads, self.hidden_size)
+        shift_weights = self.shift_weights(hc)
+        shift_weights = shift_weights.view(-1, self.num_heads, 2)
+        
+        erase_vectors = torch.sum(read_weights * self.memory, dim=1)
+        add_vectors = torch.sum(write_weights * x.unsqueeze(1), dim=1)
+        
+        shifted_memory = torch.roll(self.memory, shifts=-shift_weights[:, :, 0].long(), dims=1)
+        shifted_memory[:, -shift_weights[:, :, 1].long()] = 0
+        
+        self.memory = shifted_memory + erase_vectors * (1 - shift_weights[:, :, 1]) + add_vectors * shift_weights[:, :, 1]
+        
+        return self.memory
+
+class Model(nn.Module):
+    def __init__(self, input_size, hidden_size, num_layers, num_classes):
+        super(Model, self).__init__()
+        
+        self.lstm = nn.LSTM(input_size, hidden_size, num_layers)
+        self.ntm = NeuralTuringMachine(hidden_size, hidden_size, num_heads=4, controller_hidden_size=hidden_size // 2)
+        self.fc = nn.Linear(hidden_size, num_classes)
+        
+    def forward(self, x):
+        lstm_out, _ = self.lstm(x)
+```
+1. Retain original class names.
+2. Format the code in Markdown.
+3. Exclude setup/demonstration code.
+4. Retain original tensor input/output sizes.
+5. Provide full code.
+6. Must function with default settings.
+
+A: Let us think step by step
+atl1-1-03-012-23-0.pace.gatech.edu
+82.31 sec
+
+************************************************************
+*                      TEXT FROM LLM                       *
+************************************************************
+.
+
+1. We need to retain the original class names for better understanding and maintainability of the code.
+2. Formatting the code in Markdown makes it easier to read and understand.
+3. Setup/demonstration code can be excluded since it is not necessary for understanding the core functionality of the classes.
+4. Original tensor input/output sizes should be retained to ensure that the code functions correctly.
+5. Providing full code ensures that users have all the required components to run the code without any missing parts.
+6. The code must function with default settings to make it easy for users to test and use it.
+
+Here's the revised version of the code following these guidelines:
+
+```python
+import torch
+import torch.nn as nn
+from torch.nn import functional as F
+
+class NeuralTuringMachine(nn.Module):
+    def __init__(self, input_size, hidden_size, num_heads, controller_hidden_size):
+        super(NeuralTuringMachine, self).__init__()
+
+        self.input_size = input_size
+        self.hidden_size = hidden_size
+        self.num_heads = num_heads
+        self.controller_hidden_size = controller_hidden_size
+
+        self.controller = nn.LSTMCell(input_size, controller_hidden_size)
+        self.memory = nn.Parameter(torch.randn(1, hidden_size))
+        self.read_weights = nn.Linear(controller_hidden_size, num_heads * hidden_size)
+        self.write_weights = nn.Linear(controller_hidden_size, num_heads * hidden_size)
+        self.shift_weights = nn.Linear(controller_hidden_size, num_heads * 2)
+
+    def forward(self, x):
+        hc, c = self.controller(x, None)
+
+        read_weights = self.read_weights(hc)
+        read_weights = read_weights.view(-1, self.num_heads, self.hidden_size)
+        read_weights = F.softmax(read_weights, dim=1)
+
+        write_weights = self.write_weights(hc)
+        write_weights = write_weights.view(-1, self.num_heads, self.hidden_size)
+        shift_weights = self.shift_weights(hc)
+        shift_weights = shift_weights.view(-1, self.num_heads, 2)
+
+        erase_vectors = torch.sum(read_weights * self.memory, dim=1)
+        add_vectors = torch.sum(write_weights * x.unsqueeze(1), dim=1)
+
+        shifted_memory = torch.roll(self.memory, shifts=-shift_weights[:, :, 0].long(), dims=1)
+        shifted_memory[:, -shift_weights[:, :, 1].long()] = 0
+
+        self.memory = shifted_memory + erase_vectors * (1 - shift_weights[:, :, 1]) + add_vectors * shift_weights[:, :, 1]
+
+        return self.memory
+
+class Model(nn.Module):
+    def __init__(self, input_size, hidden_size, num_layers, num_classes):
+        super(Model, self).__init__()
+
+        self.lstm = nn.LSTM(input_size, hidden_size, num_layers)
+        self.ntm = NeuralTuringMachine(hidden_size, hidden_size, num_heads=4, controller_hidden_size=hidden_size // 2)
+        self.fc = nn.Linear(hidden_size, num_classes)
+
+   
+
+************************************************************
+*                      CODE FROM LLM                       *
+************************************************************
+import torch
+import torch.nn as nn
+from torch.nn import functional as F
+
+class NeuralTuringMachine(nn.Module):
+    def __init__(self, input_size, hidden_size, num_heads, controller_hidden_size):
+        super(NeuralTuringMachine, self).__init__()
+
+        self.input_size = input_size
+        self.hidden_size = hidden_size
+        self.num_heads = num_heads
+        self.controller_hidden_size = controller_hidden_size
+
+        self.controller = nn.LSTMCell(input_size, controller_hidden_size)
+        self.memory = nn.Parameter(torch.randn(1, hidden_size))
+        self.read_weights = nn.Linear(controller_hidden_size, num_heads * hidden_size)
+        self.write_weights = nn.Linear(controller_hidden_size, num_heads * hidden_size)
+        self.shift_weights = nn.Linear(controller_hidden_size, num_heads * 2)
+
+    def forward(self, x):
+        hc, c = self.controller(x, None)
+
+        read_weights = self.read_weights(hc)
+        read_weights = read_weights.view(-1, self.num_heads, self.hidden_size)
+        read_weights = F.softmax(read_weights, dim=1)
+
+        write_weights = self.write_weights(hc)
+        write_weights = write_weights.view(-1, self.num_heads, self.hidden_size)
+        shift_weights = self.shift_weights(hc)
+        shift_weights = shift_weights.view(-1, self.num_heads, 2)
+
+        erase_vectors = torch.sum(read_weights * self.memory, dim=1)
+        add_vectors = torch.sum(write_weights * x.unsqueeze(1), dim=1)
+
+        shifted_memory = torch.roll(self.memory, shifts=-shift_weights[:, :, 0].long(), dims=1)
+        shifted_memory[:, -shift_weights[:, :, 1].long()] = 0
+
+        self.memory = shifted_memory + erase_vectors * (1 - shift_weights[:, :, 1]) + add_vectors * shift_weights[:, :, 1]
+
+        return self.memory
+
+class Model(nn.Module):
+    def __init__(self, input_size, hidden_size, num_layers, num_classes):
+        super(Model, self).__init__()
+
+        self.lstm = nn.LSTM(input_size, hidden_size, num_layers)
+        self.ntm = NeuralTuringMachine(hidden_size, hidden_size, num_heads=4, controller_hidden_size=hidden_size // 2)
+        self.fc = nn.Linear(hidden_size, num_classes)
+
+************************************************************************************************************************
+*                        Python code saved to pointnet2_cls_ssg_xXxOe9gGvzExg1womcAboRfJYLi.py                         *
+************************************************************************************************************************
+Job Done
+---------------------------------------
+Begin Slurm Epilog: Apr-25-2025 15:11:15
+Job ID:        2534256
+User ID:       dnguyen448
+Account:       coc
+Job name:      llm_oper
+Resources:     cpu=12,gres/gpu:l40s=1,mem=16G,node=1
+Rsrc Used:     cput=00:19:24,vmem=0,walltime=00:01:37,mem=254748K,energy_used=0
+Partition:     ice-gpu
+QOS:           coe-ice
+Nodes:         atl1-1-03-004-23-0
+---------------------------------------

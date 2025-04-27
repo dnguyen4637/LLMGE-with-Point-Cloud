@@ -1,0 +1,76 @@
+---------------------------------------
+Begin Slurm Prolog: Apr-25-2025 14:16:52
+Job ID:    2533506
+User ID:   dnguyen448
+Account:   coc
+Job name:  evaluateGene
+Partition: ice-gpu
+QOS:       coe-ice
+---------------------------------------
+Launching Python Evaluation
+atl1-1-02-010-36-0.pace.gatech.edu
+
+CondaError: Run 'conda init' before 'conda deactivate'
+
+PARAMETER ...
+Namespace(use_cpu=False, gpu='0', batch_size=216, model='pointnet2_cls_ssg_xXxX5dpsaonQj6kxGCpuHtRYJHe', num_category=40, epoch=2, learning_rate=0.001, num_point=1024, optimizer='Adam', log_dir=None, decay_rate=0.0001, use_normals=False, process_data=False, use_uniform_sample=False, data='/storage/ice-shared/vip-vvk/data/llm_ge_data/modelnet40_normal_resampled', end_lr=0.001, seed=21, val_r=0.2, amp=True)
+Load dataset ...
+The size of train data is 9843
+The size of test data is 2468
+  0%|          | 0.00/9.91M [00:00<?, ?B/s]  3%|▎         | 295k/9.91M [00:00<00:03, 2.92MB/s]  7%|▋         | 688k/9.91M [00:00<00:02, 3.26MB/s] 11%|█         | 1.11M/9.91M [00:00<00:02, 3.50MB/s] 16%|█▌        | 1.57M/9.91M [00:00<00:02, 3.87MB/s] 21%|██        | 2.06M/9.91M [00:00<00:01, 4.13MB/s] 26%|██▌       | 2.59M/9.91M [00:00<00:01, 4.44MB/s] 32%|███▏      | 3.15M/9.91M [00:00<00:01, 4.76MB/s] 38%|███▊      | 3.74M/9.91M [00:00<00:01, 5.02MB/s] 44%|████▍     | 4.36M/9.91M [00:00<00:01, 5.29MB/s] 51%|█████     | 5.05M/9.91M [00:01<00:00, 5.76MB/s] 58%|█████▊    | 5.73M/9.91M [00:01<00:00, 6.04MB/s] 65%|██████▌   | 6.46M/9.91M [00:01<00:00, 6.34MB/s] 73%|███████▎  | 7.21M/9.91M [00:01<00:00, 6.67MB/s] 81%|████████  | 8.03M/9.91M [00:01<00:00, 7.01MB/s] 89%|████████▉ | 8.85M/9.91M [00:01<00:00, 7.31MB/s] 98%|█████████▊| 9.73M/9.91M [00:01<00:00, 7.64MB/s]100%|██████████| 9.91M/9.91M [00:01<00:00, 5.86MB/s]
+  0%|          | 0.00/28.9k [00:00<?, ?B/s]100%|██████████| 28.9k/28.9k [00:00<00:00, 1.82MB/s]
+  0%|          | 0.00/1.65M [00:00<?, ?B/s] 56%|█████▌    | 918k/1.65M [00:00<00:00, 8.78MB/s]100%|██████████| 1.65M/1.65M [00:00<00:00, 15.4MB/s]
+  0%|          | 0.00/4.54k [00:00<?, ?B/s]100%|██████████| 4.54k/4.54k [00:00<00:00, 4.72MB/s]
+Epoch 1, Loss: 0.8416363361007624
+Epoch 2, Loss: 0.32598242480585826
+Epoch 3, Loss: 0.2716120050739505
+Epoch 4, Loss: 0.24115097553713488
+Epoch 5, Loss: 0.22296525258769487
+Epoch 6, Loss: 0.20691602615945376
+Epoch 7, Loss: 0.19144463593930577
+Epoch 8, Loss: 0.18645928469079454
+Epoch 9, Loss: 0.17647196244456367
+Epoch 10, Loss: 0.17083579488892928
+Finished Training
+Accuracy on 10000 test images: 95.05%
+No existing model, starting training from scratch...
+Epoch 1 (1/2):
+  0%|          | 0/45 [00:00<?, ?it/s]  0%|          | 0/45 [00:06<?, ?it/s]
+Traceback (most recent call last):
+  File "/storage/ice1/3/9/dnguyen448/LLM-Guided-Evolution-Generic/./sota/Pointnet_Pointnet2_pytorch/train_classification.py", line 283, in <module>
+    main(args)
+  File "/storage/ice1/3/9/dnguyen448/LLM-Guided-Evolution-Generic/./sota/Pointnet_Pointnet2_pytorch/train_classification.py", line 224, in main
+    pred, trans_feat = classifier(points)
+  File "/home/hice1/dnguyen448/.conda/envs/llm_guided_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hice1/dnguyen448/.conda/envs/llm_guided_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hice1/dnguyen448/scratch/LLM-Guided-Evolution-Generic/sota/Pointnet_Pointnet2_pytorch/models/llmge_models/pointnet2_cls_ssg_xXxX5dpsaonQj6kxGCpuHtRYJHe.py", line 31, in forward
+    l2_xyz, l2_points = self.sa2(l1_xyz, l1_points)
+  File "/home/hice1/dnguyen448/.conda/envs/llm_guided_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hice1/dnguyen448/.conda/envs/llm_guided_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/storage/ice1/3/9/dnguyen448/LLM-Guided-Evolution-Generic/sota/Pointnet_Pointnet2_pytorch/models/pointnet2_utils.py", line 198, in forward
+    new_points =  F.relu(bn(conv(new_points)))
+  File "/home/hice1/dnguyen448/.conda/envs/llm_guided_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/hice1/dnguyen448/.conda/envs/llm_guided_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/hice1/dnguyen448/.conda/envs/llm_guided_env/lib/python3.9/site-packages/torch/nn/modules/batchnorm.py", line 193, in forward
+    return F.batch_norm(
+  File "/home/hice1/dnguyen448/.conda/envs/llm_guided_env/lib/python3.9/site-packages/torch/nn/functional.py", line 2822, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.69 GiB. GPU 0 has a total capacity of 15.77 GiB of which 1.01 GiB is free. Including non-PyTorch memory, this process has 14.76 GiB memory in use. Of the allocated memory 13.01 GiB is allocated by PyTorch, and 1.38 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+---------------------------------------
+Begin Slurm Epilog: Apr-25-2025 14:20:25
+Job ID:        2533506
+User ID:       dnguyen448
+Account:       coc
+Job name:      evaluateGene
+Resources:     cpu=12,gres/gpu:v100=1,mem=16G,node=1
+Rsrc Used:     cput=00:43:00,vmem=0,walltime=00:03:35,mem=4264908K,energy_used=0
+Partition:     ice-gpu
+QOS:           coe-ice
+Nodes:         atl1-1-02-010-36-0
+---------------------------------------

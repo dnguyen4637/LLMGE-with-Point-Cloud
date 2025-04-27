@@ -1,0 +1,6 @@
+Here's one possible rephrasing:
+
+"The `train_model` function takes in a model, data, number of epochs, and batch size as inputs, and proceeds to train the model on the data for the specified number of epochs with the given batch size."
+```python
+{}
+```

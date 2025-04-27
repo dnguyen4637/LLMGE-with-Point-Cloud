@@ -1,0 +1,47 @@
+---------------------------------------
+Begin Slurm Prolog: Apr-25-2025 18:49:29
+Job ID:    2536201
+User ID:   dnguyen448
+Account:   coc
+Job name:  evaluateGene
+Partition: ice-gpu
+QOS:       coe-ice
+---------------------------------------
+Launching Python Evaluation
+atl1-1-02-010-35-0.pace.gatech.edu
+
+CondaError: Run 'conda init' before 'conda deactivate'
+
+PARAMETER ...
+Namespace(use_cpu=False, gpu='0', batch_size=216, model='pointnet2_cls_ssg_xXxqRyXE9TaNy8dwI5h93N0Pp5t', num_category=40, epoch=2, learning_rate=0.001, num_point=1024, optimizer='Adam', log_dir=None, decay_rate=0.0001, use_normals=False, process_data=False, use_uniform_sample=False, data='/storage/ice-shared/vip-vvk/data/llm_ge_data/modelnet40_normal_resampled', end_lr=0.001, seed=21, val_r=0.2, amp=True)
+Load dataset ...
+The size of train data is 9843
+The size of test data is 2468
+Epoch 1, Loss: 0.8314493298530579
+Epoch 2, Loss: 0.8290483951568604
+Epoch 3, Loss: 0.8266820311546326
+Epoch 4, Loss: 0.8243500590324402
+Epoch 5, Loss: 0.8220517635345459
+Epoch 6, Loss: 0.8197864294052124
+Epoch 7, Loss: 0.8175538778305054
+Epoch 8, Loss: 0.8153563737869263
+Epoch 9, Loss: 0.8132243156433105
+Epoch 10, Loss: 0.8111225366592407
+Traceback (most recent call last):
+  File "/storage/ice1/3/9/dnguyen448/LLM-Guided-Evolution-Generic/./sota/Pointnet_Pointnet2_pytorch/train_classification.py", line 283, in <module>
+    main(args)
+  File "/storage/ice1/3/9/dnguyen448/LLM-Guided-Evolution-Generic/./sota/Pointnet_Pointnet2_pytorch/train_classification.py", line 168, in main
+    criterion = model.get_loss()
+AttributeError: module 'pointnet2_cls_ssg_xXxqRyXE9TaNy8dwI5h93N0Pp5t' has no attribute 'get_loss'
+---------------------------------------
+Begin Slurm Epilog: Apr-25-2025 18:49:41
+Job ID:        2536201
+User ID:       dnguyen448
+Account:       coc
+Job name:      evaluateGene
+Resources:     cpu=12,gres/gpu:v100=1,mem=16G,node=1
+Rsrc Used:     cput=00:02:36,vmem=0,walltime=00:00:13,mem=304540K,energy_used=0
+Partition:     ice-gpu
+QOS:           coe-ice
+Nodes:         atl1-1-02-010-35-0
+---------------------------------------

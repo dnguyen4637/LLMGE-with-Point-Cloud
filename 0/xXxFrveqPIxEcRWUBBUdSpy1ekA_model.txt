@@ -1,0 +1,19 @@
+model = Sequential()
+model.add(Dense(128, input_dim=8, activation='relu'))
+model.add(Dense(64, activation='relu'))
+model.add(Dense(32, activation='relu'))
+model.add(Dense(1, activation='sigmoid'))
+
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+```python
+{}
+```
+1. Retain original class names.
+2. Format the code in Markdown.
+3. Exclude setup/demonstration code.
+4. Retain original tensor input/output sizes.
+5. Provide full code.
+6. Must function with default settings.
+
+A: Let us think step by step
