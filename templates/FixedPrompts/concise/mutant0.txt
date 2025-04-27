@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-def calculate_average(numbers):
-    return sum(numbers) / len(numbers)
-=======
 python
 ---
 lambda x: foo(x)
 ---
->>>>>>> 1bf0303 (Recommit full project structure and updates)
 
 ```python
 {}

@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-Question: What complex adjustments can be considered to possibly improve the performance of the following existing code segment?
-
-Here is the current code:
-=======
 def get_data(df):
     return df.groupby('Category')['Value'].sum().reset_index()
->>>>>>> 1bf0303 (Recommit full project structure and updates)
 
 ```python
 {}

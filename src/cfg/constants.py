@@ -4,11 +4,7 @@ import numpy as np
 # Pointnet++ Implementation
 ROOT_DIR = "/home/hice1/dnguyen448/scratch/LLM-Guided-Evolution-Generic"
 # DATA_PATH absolute or relative to Pointnet++
-<<<<<<< HEAD
-DATA_PATH = "/storage/ice-shared/vip-vvk/data/1lm_ge_data/modelnet40_normal_resampled"
-=======
 DATA_PATH = "/storage/ice-shared/vip-vvk/data/llm_ge_data/modelnet40_normal_resampled"
->>>>>>> 1bf0303 (Recommit full project structure and updates)
 SOTA_ROOT = "/home/hice1/dnguyen448/scratch/LLM-Guided-Evolution-Generic/sota/Pointnet_Pointnet2_pytorch"
 SEED_NETWORK = "/home/hice1/dnguyen448/scratch/LLM-Guided-Evolution-Generic/sota/Pointnet_Pointnet2_pytorch/models/pointnet2_cls_ssg.py"
 '''
@@ -47,17 +43,10 @@ INVALID_FITNESS_MAX = tuple([float(x*np.inf*-1) for x in FITNESS_WEIGHTS])
 PLACEHOLDER_FITNESS = tuple([int(x*9999999999*-1) for x in FITNESS_WEIGHTS])
 
 NUM_EOT_ELITES = 10
-<<<<<<< HEAD
-GENERATION = 1
-PROB_QC = 0.0
-PROB_EOT = 0.25
-num_generations = 2  # Number of generations
-=======
 GENERATION = 0
 PROB_QC = 0.0
 PROB_EOT = 0.25
 num_generations = 10  # Number of generations
->>>>>>> 1bf0303 (Recommit full project structure and updates)
 start_population_size = 32
 # start_population_size = 144   # Size of the population 124=72
 #population_size = 44 # with cx_prob (0.25) and mute_prob (0.7) you get about %50 successful turnover

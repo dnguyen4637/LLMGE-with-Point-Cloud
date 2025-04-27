@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-You have gained international recognition for your work in artificial intelligence research and are now being asked to apply your expertise to a dormant project. Our goal is to enhance the performance of the following code segment by fine-tuning its default settings or hyperparameters:
-
-Below is the current code:
-=======
 python
 def calculate_mean(numbers):
     return sum(numbers) / len(numbers)
@@ -26,7 +21,6 @@ def train_model(dataset):
 def predict(input):
     # Prediction logic goes here
 
->>>>>>> 1bf0303 (Recommit full project structure and updates)
 ```python
 {}
 ```

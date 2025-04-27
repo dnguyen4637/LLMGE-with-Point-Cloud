@@ -42,11 +42,7 @@ def parse_args():
     # parser.add_argument('--model', default='pointnet_cls', help='model name [default: pointnet_cls]') - changed so that default would be pointnet2_cls_ssg to be work in conjunction with the llm
     parser.add_argument('--model', default='pointnet2_cls_ssg', help='model name [default: pointnet2_cls_ssg]')
     parser.add_argument('--num_category', default=40, type=int, choices=[10, 40],  help='training on ModelNet10/40')
-<<<<<<< HEAD
-    parser.add_argument('--epoch', default=2, type=int, help='number of epoch in training') # was 200, shortened it to check if it works
-=======
     parser.add_argument('--epoch', default=200, type=int, help='number of epoch in training') # was 200, shortened it to check if it works
->>>>>>> 1bf0303 (Recommit full project structure and updates)
     parser.add_argument('--learning_rate', default=0.001, type=float, help='learning rate in training')
     parser.add_argument('--num_point', type=int, default=1024, help='Point Number')
     parser.add_argument('--optimizer', type=str, default='Adam', help='optimizer for training')
@@ -154,11 +150,7 @@ def main(args):
 
     '''DATA LOADING'''
     log_string('Load dataset ...')
-<<<<<<< HEAD
-    data_path = '/storage/ice-shared/vip-vvk/data/1lm_ge_data/modelnet40_normal_resampled'
-=======
     data_path = "/storage/ice-shared/vip-vvk/data/llm_ge_data/modelnet40_normal_resampled"
->>>>>>> 1bf0303 (Recommit full project structure and updates)
 
     train_dataset = ModelNetDataLoader(root=data_path, args=args, split='train', process_data=args.process_data)
     test_dataset = ModelNetDataLoader(root=data_path, args=args, split='test', process_data=args.process_data)
@@ -168,15 +160,9 @@ def main(args):
     '''MODEL LOADING'''
     num_class = args.num_category
     model = importlib.import_module(args.model)
-<<<<<<< HEAD
-    shutil.copy('/home/hice1/dnguyen448/scratch/llm-guided-evolution/sota/Pointnet_Pointnet2_pytorch/models/llmge_models/%s.py' % args.model, str(exp_dir))
-    shutil.copy('/home/hice1/dnguyen448/scratch/llm-guided-evolution/sota/Pointnet_Pointnet2_pytorch/models/pointnet2_utils.py', str(exp_dir))
-    shutil.copy('/home/hice1/dnguyen448/scratch/llm-guided-evolution/sota/Pointnet_Pointnet2_pytorch/train_classification.py', str(exp_dir))
-=======
     shutil.copy('/home/hice1/dnguyen448/scratch/LLM-Guided-Evolution-Generic/sota/Pointnet_Pointnet2_pytorch/models/llmge_models/%s.py' % args.model, str(exp_dir))
     shutil.copy('/home/hice1/dnguyen448/scratch/LLM-Guided-Evolution-Generic/sota/Pointnet_Pointnet2_pytorch/models/pointnet2_utils.py', str(exp_dir))
     shutil.copy('/home/hice1/dnguyen448/scratch/LLM-Guided-Evolution-Generic/sota/Pointnet_Pointnet2_pytorch/train_classification.py', str(exp_dir))
->>>>>>> 1bf0303 (Recommit full project structure and updates)
 
     classifier = model.get_model(num_class, normal_channel=args.use_normals)
     criterion = model.get_loss()
@@ -280,11 +266,7 @@ def main(args):
     #total_params = sum(p.numel() for p in model.parameters())
     results_text = f"{best_instance_acc},{class_acc},{tr_time}"
 
-<<<<<<< HEAD
-    filename = f'/home/hice1/dnguyen448/scratch/llm-guided-evolution/sota/Pointnet_Pointnet2_pytorch/results/{gene_id}_results.txt'
-=======
     filename = f'/home/hice1/dnguyen448/scratch/LLM-Guided-Evolution-Generic/sota/Pointnet_Pointnet2_pytorch/results/{gene_id}_results.txt'
->>>>>>> 1bf0303 (Recommit full project structure and updates)
 
     dir_path = os.path.dirname(filename)
     # Create the directory, ignore error if it already exists
